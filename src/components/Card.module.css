@@ -1,0 +1,46 @@
+.card {
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  width: 300px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #d6d6d6;
+}
+
+.name {
+  position: absolute;
+  top: 260px;
+  left: 20px;
+  padding: 0 30px;
+  border-radius: 5px;
+  background-color: yellow;
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background-image: url('../assets/times-square.svg');
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.img {
+  border-radius: 5px;
+}
+
+.info > h2 {
+  display: inline-flex;
+  margin: 20px 30px;
+}
+
+.favorite {
+  position: absolute;
+  top: 20px;
+  nav-left: 20px;
+}

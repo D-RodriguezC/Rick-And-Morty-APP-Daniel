@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 90vh;
+  color: white;
+}
+
+.info {
+  height: 700px;
+  width: 700px;
+  text-align: center;
+  box-shadow: 0 0 15px;
+}
+
+.info h1 {
+  margin-bottom: 100px;
+  font-size: 80px;
+}
+
+.info h3 {
+  font-size: 50px;
+}
+
+.image > img {
+  border-radius: 50%;
+  height: 700px;
+  width: 700px;
+  box-shadow: 0px 10px 15px -3px rgba(255, 255, 255, 0.814),
+    0px 10px 15px -3px rgba(255, 255, 255, 0.721);
+}
