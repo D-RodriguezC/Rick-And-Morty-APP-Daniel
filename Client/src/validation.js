@@ -1,8 +1,8 @@
 export const validation = ({ email, password }) => {
   let validEmail = 'Email incorrecto'
   let validPassword = 'Contraseña incorrecta'
-  const EMAIL = 'daniel@gmail.com'
-  const PASSWORD = 'asd123!@#'
+  const EMAIL = 'dani@gmail.com'
+  const PASSWORD = '1234df'
 
   if (!email.match(/^[\w.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
     validEmail = 'El nombre de usuario tiene que ser un email valido'

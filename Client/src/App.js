@@ -16,13 +16,18 @@ function App({ removeFav }) {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const [access, setAccess] = useState(false)
-  const EMAIL = 'daniel@gmail.com'
-  const PASSWORD = 'asd123!@#'
 
-  const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true)
-      navigate('/home')
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData
+      const { data } = await axios(
+        `http://localhost:3001/login?email=${email}&password=${password}`
+      )
+      const { access } = data
+      setAccess(access)
+      access && navigate('/home')
+    } catch (error) {
+      console.log(error.message)
     }
   }
 
@@ -30,16 +35,17 @@ function App({ removeFav }) {
     !access && navigate('/')
   }, [access, navigate])
 
-  const onSearch = (id) => {
-    if (characters.filter((char) => char.id === id).length > 0) {
-      return window.alert('¡Este personaje ya existe en la lista!')
-    }
-
-    axios(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(({ data }) => {
+  const onSearch = async (id) => {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      )
+      if (data.name) {
         setCharacters((oldChars) => [...oldChars, data])
-      })
-      .catch(() => window.alert('¡No hay personajes con este ID!'))
+      }
+    } catch (error) {
+      alert('¡No hay personajes con este ID!')
+    }
   }
 
   const onClose = (id) => {
@@ -51,7 +57,6 @@ function App({ removeFav }) {
     const randomChar = Math.ceil(Math.random() * 825)
     onSearch(randomChar)
   }
-
   return (
     <div className={Styles.App}>
       {pathname !== '/' && (
